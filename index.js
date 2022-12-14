@@ -18,7 +18,7 @@ const { Server } = require("socket.io");
 app.use(cors());
 
 const server = http.createServer(app);
-
+const port= process.env.port||3000;
 const io = new Server(server, {
   cors: {
     origin: "http://localhost:3000",
@@ -42,7 +42,10 @@ io.on("connection", (socket) => {
     console.log("User Disconnected", socket.id);
   });
 });
-
-server.listen(3001, () => {
-  console.log("SERVER RUNNING");
+app.get("/allrooms", async (req, res) => {
+  const result ="welcome";
+  res.send(result);
+});
+server.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
 });
