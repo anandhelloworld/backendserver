@@ -42,10 +42,7 @@ io.on("connection", (socket) => {
     console.log("User Disconnected", socket.id);
   });
 });
-app.get("/allrooms", async (req, res) => {
-  const result ="welcome";
-  res.send(result);
-});
+app.get('/', (req, res) => res.send('Hello ANAND!'));
 server.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 });
